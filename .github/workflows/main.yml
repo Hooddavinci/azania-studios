@@ -44,5 +44,5 @@ jobs:
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.firebase_key }}
+          FIREBASE_TOKEN: 1//03FyDKqBV-S7BCgYIARAAGAMSNwF-L9Irzj1OrpWR6rGOfCpzahA37jQdan0A3jceLBIMxtPATKBxXHk9CzPfi6NdmmH2CPWjz7c
           # This is where our stored secret will come in use
