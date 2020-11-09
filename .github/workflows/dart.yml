@@ -15,12 +15,12 @@ jobs:
     steps:
 
       # Checkout our code
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       # Switching to Flutter dev branch
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2
         with:
-          channel: 'dev'
+          channel: 'master'
 
       # Enabling Flutter Web
       - run: flutter config --enable-web
