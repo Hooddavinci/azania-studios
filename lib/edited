@@ -1,1 +1,573 @@
-flutter run -d chrome --release
+flutter run -d chrome --release 
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+token : 1//03FyDKqBV-S7BCgYIARAAGAMSNwF-L9Irzj1OrpWR6rGOfCpzahA37jQdan0A3jceLBIMxtPATKBxXHk9CzPfi6NdmmH2CPWjz7
+
+
+class MyDetailPage extends StatefulWidget {
+  MyGuest _guest;
+
+  MyDetailPage(MyGuest guest) {
+    _guest = guest;
+  }
+
+  @override
+  _MyDetailPageState createState() => _MyDetailPageState(_guest);
+}
+
+class _MyDetailPageState extends State<MyDetailPage> {
+  MyGuest guest;
+
+  _MyDetailPageState(MyGuest guest) {
+    this.guest = guest;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(guest.title),
+      ),
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Hero(
+            transitionOnUserGestures: true,
+            tag: guest,
+            child: Transform.scale(
+              scale: 2.0,
+              child: Image.asset(guest.img),
+            ),
+          ),
+          Card(
+              elevation: 8,
+              margin: EdgeInsets.all(16),
+              child: Container(
+                padding: EdgeInsets.all(16),
+                child: Text(guest.body),
+              )),
+        ],
+      )),
+    );
+  }
+}
+
+
+
+
+import 'package:energybox6/dialog.dart';
+import 'package:energybox6/services/auth.dart';
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
+import 'package:energybox6/models/user.dart';
+import 'package:dropdown_search/dropdown_search.dart';
+import 'package:dropdownfield/dropdownfield.dart';
+
+final DarkGray = const Color(0xFF231F20);
+final LightGray = const Color(0xFFF7F7F7);
+final DarkGreen = const Color(0xFF7CA43C);
+final lightGreen = const Color(0xFFD7EAB8);
+final shade = const Color(0xFFDADADA);
+final darkgrayword = const Color(0xFF808080);
+
+String name = "0";
+String branch = "";
+String surname = "";
+String country = "";
+String place = "";
+var now = new DateTime.now();
+
+class register extends StatefulWidget {
+  final Function toggleView;
+  register({this.toggleView});
+
+  @override
+  _registerState createState() => _registerState();
+}
+
+class _registerState extends State<register> {
+  String email = '';
+  String password = '';
+  String error = "";
+
+  final conName = TextEditingController();
+  final conBranch = TextEditingController();
+  final conSurname = TextEditingController();
+  final conPlacce = TextEditingController();
+
+  final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+    return Scaffold(
+      body: Container(
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 40.0,
+                ),
+
+                //1.HEADING
+                Center(
+                  child: Text(
+                    "Sign-Up",
+                    style: TextStyle(
+                        fontSize: 60,
+                        color: DarkGray,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 20.0,
+                ),
+
+                //2.NAME
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    //color: gren,
+                    child: Text(
+                      "Name",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: darkgrayword,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10.0, left: 20, right: 20, bottom: 10.0),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(30.0),
+                    elevation: 6.0,
+                    shadowColor: shade,
+                    child: TextFormField(
+                      controller: conName,
+                      decoration: buildShadowInputDecoration(),
+                      onChanged: (val) {
+                        setState(() => name = val);
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+
+                //2.SURNAME
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    //color: gren,
+                    child: Text(
+                      "Surname",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: darkgrayword,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10.0, left: 20, right: 20, bottom: 10.0),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(30.0),
+                    elevation: 6.0,
+                    shadowColor: shade,
+                    child: TextFormField(
+                      controller: conSurname,
+                      decoration: buildShadowInputDecoration(),
+                      onChanged: (val) {
+                        setState(() => surname = val);
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+
+                //3.EMAIL
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    //color: gren,
+                    child: Text(
+                      "E-mail",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: darkgrayword,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10.0, left: 20, right: 20, bottom: 10.0),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(35.0),
+                    elevation: 6.0,
+                    shadowColor: shade,
+                    child: TextFormField(
+                      decoration: buildShadowInputDecoration(),
+                      onChanged: (val) {
+                        setState(() => email = val);
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+
+                //4.PASSWORD
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    //color: gren,
+                    child: Text(
+                      "Password",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: darkgrayword,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10.0, left: 20, right: 20, bottom: 10.0),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(35.0),
+                    elevation: 6.0,
+                    shadowColor: shade,
+                    child: TextFormField(
+                      obscureText: true,
+                      decoration: buildShadowInputDecoration(),
+                      onChanged: (val) {
+                        setState(() => password = val);
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    //color: gren,
+                    child: Text(
+                      "Select Country",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: darkgrayword,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 20, left: 20.0, right: 20.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: shade,
+                      //border: Border.all(color: lightGray),
+                      borderRadius: BorderRadius.circular(40),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shade,
+                          offset: Offset(2, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20.0, top: 10.0, bottom: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "$country",
+                            style: TextStyle(
+                                color: darkgrayword,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          new DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              //elevation: 10,
+                              style: TextStyle(
+                                color: darkgrayword,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w300,
+                              ),
+                              items: [
+                                DropdownMenuItem<String>(
+                                  value: "South Africa",
+                                  //padding: const EdgeInsets.all(5),
+                                  child: Container(
+                                    child: Center(
+                                      child: Text("South Africa"),
+                                    ),
+                                  ),
+                                ),
+                                // DropdownMenuItem<String>(
+                                //   value: "Zimbabwe",
+                                //   //padding: const EdgeInsets.all(5),
+                                //   child: Container(
+                                //     child: Center(
+                                //       child: Text("$Zimba"),
+                                //     ),
+                                //   ),
+                                // ),
+                              ],
+                              onChanged: (_value) {
+                                setState(() {
+                                  country = _value;
+                                });
+                              },
+                              hint: Text(""),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                //5.BRANCH
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    //color: gren,
+                    child: Text(
+                      "Branch",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: darkgrayword,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 20, left: 20.0, right: 20.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: shade,
+                      //border: Border.all(color: lightGray),
+                      borderRadius: BorderRadius.circular(40),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shade,
+                          offset: Offset(2, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20.0, top: 10.0, bottom: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "$branch",
+                            style: TextStyle(
+                                color: darkgrayword,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          new DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              //elevation: 10,
+                              style: TextStyle(
+                                color: darkgrayword,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w300,
+                              ),
+                              items: [
+                                DropdownMenuItem<String>(
+                                  value: "Bosman",
+                                  //padding: const EdgeInsets.all(5),
+                                  child: Container(
+                                    child: Center(
+                                      child: Text("Bosman"),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                              onChanged: (_value) {
+                                setState(() {
+                                  branch = _value;
+                                });
+                              },
+                              hint: Text(""),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+
+                SizedBox(
+                  height: 20.0,
+                ),
+
+                FlatButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40.0)),
+                  color: lightGreen,
+                  textColor: DarkGreen,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 50,
+                      right: 50,
+                      top: 20,
+                      bottom: 20,
+                    ),
+                    child: Text(
+                      "Back",
+                      style: TextStyle(fontSize: 20.0, color: DarkGreen),
+                    ),
+                  ),
+                  onPressed: () {
+                    //widget.toggleView();
+                    print(user.uid);
+                  },
+                ),
+
+                SizedBox(
+                  height: 20.0,
+                ),
+
+                FlatButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40.0)),
+                  color: DarkGreen,
+                  textColor: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 50,
+                      right: 50,
+                      top: 20,
+                      bottom: 20,
+                    ),
+                    child: Text(
+                      "Register",
+                      style: TextStyle(fontSize: 20.0, color: Colors.white),
+                    ),
+                  ),
+                  onPressed: () async {
+                    //create UID
+                    if (_formKey.currentState.validate()) {
+                      dynamic result = await _auth
+                          .registerWithEmailandPasssword(email, password);
+                      setState(() {
+                        //create a database
+                        // Firestore.instance
+                        //     .collection("Agents")
+                        //     .document()
+                        //     .setData({
+                        //   "one": name,
+                        // });
+                      });
+
+                      name = conName.text;
+                      branch = conBranch.text;
+
+                      if (result == null) {
+                        setState(() => error = "please supply a valid email");
+                      }
+                    }
+                  },
+                ),
+
+                SizedBox(height: 20.0),
+
+                Text(
+                  error,
+                  style: TextStyle(color: darkGreen, fontSize: 14.0),
+                ),
+
+                SizedBox(height: 10.0),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  InputDecoration buildShadowInputDecoration() {
+    return InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        focusColor: DarkGreen,
+        contentPadding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40.0),
+            borderSide: BorderSide(color: Colors.white, width: 3.0)));
+  }
+}
+
+//Creating a List of strings (Places)
+List<String> Place = [
+  "South Africa",
+  "Zimbabwe",
+];
+
+//all these proceess can be calculated in the concept of slef denfense and an unlicky process
+//the supreme good is like water , writting some philososphy in my code
+//if this program does'nt work then we should focus o the other aspects
+
+ // Hero(
+                //   //transitionOnUserGestures: true,
+                //   //we need to remove the Hero
+                //   tag: superHero,
+                //   child: Transform.scale(
+                //     scale: 2.0,
+                //     child: Image.asset(
+                //       superHero.img,
+                //       height: _height * 0.3,
+                //       width: _width,
+                //     ),
+                //   ),
+                // ),
+

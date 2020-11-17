@@ -1,20 +1,20 @@
-import 'package:azaniaweb29/CustomIcons.dart';
-import 'package:azaniaweb29/singUp.dart';
+import 'package:azaniaweb29/homePage.dart';
+import 'package:azaniaweb29/moreInfo.dart';
 import 'package:flutter/material.dart';
-import 'CustomIcons.dart';
 
-final DarkGray = const Color(0xFF231F20);
-final LightGray = const Color(0xFFF7F7F7);
-final DarkGreen = const Color(0xFF7CA43C);
-final LightGreen = const Color(0xFFD7EAB8);
-final shade = const Color(0xFFDADADA);
-final darkgrayword = const Color(0xFF808080);
+final Black = const Color(0xF000000);
+final LightGray = const Color(0xFF18F8AA);
+final Blue = const Color(0xFF3169DD);
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: singUp_view(),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: MyHomePage(title: "Azania's Guest"),
+    );
+  }
 }
