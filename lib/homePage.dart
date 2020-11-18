@@ -17,6 +17,8 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+//link1 will be the guest infoormation
+//linka will be about our podcast
 class MyGuest {
   final String img;
   final String carrer;
@@ -24,10 +26,11 @@ class MyGuest {
   final String body;
   final String link1;
   final String link2;
-  final String link3;
+  final String linkA;
+  final String linkB;
 
   MyGuest(this.img, this.title, this.carrer, this.body, this.link1, this.link2,
-      this.link3);
+      this.linkA, this.linkB);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -35,41 +38,43 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _MyHomePageState() {
     items.add(new MyGuest(
-      "assets/1.png",
-      "Kay Mela",
-      "Rapper",
-      "Underground Hip hop artist, who is passionate about making music and money at the same time His first album titled 'Above and beyond will be dropping on 03 Feb 2021'",
-      "https://www.facebook.com/kgothatso.malemela.942",
-      "https://www.instagram.com/",
-      "https://www.youtube.com/",
-    ));
+        "assets/1.png",
+        "Kay Mela",
+        "Rapper",
+        "Underground Hip hop artist, who is passionate about making music and money at the same time His first album titled 'Above and beyond will be dropping on 03 Feb 2021'",
+        "https://www.facebook.com/kgothatso.malemela.942",
+        "https://www.instagram.com/kaymela_sa/",
+        "https://www.instagram.com/p/CHU3MUPJ1HZ/",
+        "https://www.youtube.com/watch?v=SPt4RUqZToY"));
     items.add(new MyGuest(
-      "assets/2.png",
-      "Koketso",
-      "Social Entreprenuer",
-      "Koketso is part of the multi-talented Urban elegance Team, which host an annual event on the 27 November that Merges ubarn wear with classic wear.",
-      "https://www.facebook.com/koketso.magolego.39",
-      "https://www.instagram.com/",
-      "https://www.youtube.com/",
-    ));
+        "assets/2.png",
+        "Koketso",
+        "Social Entreprenuer",
+        "Koketso is part of the multi-talented Urban elegance Team, which host an annual event on the 27 November that Merges ubarn wear with classic wear.",
+        "https://www.facebook.com/koketso.magolego.39",
+        "https://www.instagram.com/koketso_ledile/",
+        "https://www.instagram.com/p/CHRvzHhJY5Y/",
+        "https://www.youtube.com/watch?v=OFAzKr0BzMI"));
     items.add(new MyGuest(
-      "assets/3.png",
-      "Bridget Mokalapa",
-      "Poet",
-      "A poet, Motivational speaker and an audit student. We set down with her to get her view about life, woman abuse and whole lot of isseues that we're facing in our communities",
-      "https://www.facebook.com/breeigh.nolo.5",
-      "https://www.instagram.com/",
-      "https://www.youtube.com/",
-    ));
+        "assets/3.png",
+        "Bridget Mokalapa",
+        "Poet",
+        "A poet, Motivational speaker and an audit student. We set down with her to get her view about life, woman abuse and whole lot of isseues that we're facing in our communities",
+        "https://www.facebook.com/breeigh.nolo.5",
+        "https://www.instagram.com/koketso_ledile/",
+        "https://www.instagram.com/tshenolobreeigh/",
+        ""));
     items.add(new MyGuest(
-      "assets/4.png",
-      "Sgwala",
-      "Rapper",
-      "An un-orthoox eccentic rapper/fashionista who's not shy about expressing his views on music.",
-      "https://www.facebook.com/thato.legodi.92102",
-      "https://www.instagram.com/",
-      "https://www.youtube.com/",
-    ));
+        "assets/4.png",
+        "Sgwala",
+        "Rapper",
+        "An un-orthoox eccentic rapper/fashionista who's not shy about expressing his views on music.",
+        "https://www.facebook.com/thato.legodi.92102",
+        "https://www.instagram.com/thatolegodi.08/",
+        "https://www.instagram.com/thatolegodi.08/",
+        "https://www.youtube.com/watch?v=geQB-Ryb--0&t=696s"
+        //we need to hook up that with the content
+        ));
     //items.add(new MySuperHero("assets/image1.jpg", "Black Widow",
     //"Despite super spy Natasha Romanoff’s checkered past, she’s become one of S.H.I.E.L.D.’s most deadly assassins and a frequent member of the Avengers."));
   }

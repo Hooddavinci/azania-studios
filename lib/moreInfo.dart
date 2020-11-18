@@ -37,6 +37,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70.0),
         child: AppBar(
+          automaticallyImplyLeading: false,
           title: Center(
             child: Text("Azania's Guest",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
@@ -71,7 +72,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   child: Text(
                     "Guest Info",
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 20,
                         fontWeight: FontWeight.w700,
                         color: Colors.white),
                   ),
@@ -91,7 +92,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                         child: Text(
                           superHero.body,
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               fontWeight: FontWeight.w300,
                               color: LightGray),
                         ),
@@ -99,7 +100,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                     ],
                   )),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
 
               //Social Media Handles
@@ -111,7 +112,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   child: Text(
                     "Social Media Handles",
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
                     ),
@@ -119,7 +120,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
 
               Column(
@@ -136,7 +137,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "FaceBook",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -185,7 +186,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "Instagram",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -221,56 +222,11 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   SizedBox(
                     height: 5,
                   ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          //color: gren,
-                          child: Text(
-                            "YouTube",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: LightGray,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.only(
-                                top: 5, bottom: 5, right: 10, left: 10),
-                            child: GestureDetector(
-                              onTap: () {
-                                launch(superHero.link3);
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  border:
-                                      Border.all(width: 2.0, color: LightGreen),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 10, bottom: 10, right: 20, left: 20),
-                                  child: Text("View",
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          color: LightGreen,
-                                          fontWeight: FontWeight.w700)),
-                                ),
-                              ),
-                            )),
-                      ],
-                    ),
-                  ),
                 ],
               ),
 
               SizedBox(
-                height: 20,
+                height: 15,
               ),
 
               //Social Media Handles
@@ -282,7 +238,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   child: Text(
                     "Podcast",
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
                     ),
@@ -290,59 +246,12 @@ class _MyDetailPageState extends State<MyDetailPage> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 15,
               ),
 
               Column(
                 children: <Widget>[
                   //1st Row
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          //color: green,
-                          child: Text(
-                            "FaceBook",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: LightGray,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.only(
-                                top: 5, bottom: 5, right: 10, left: 10),
-                            child: GestureDetector(
-                              onTap: () {
-                                // showBottomSheetD(context);
-                                //likedLost = "liked";
-                                //sHeading = "Items they liked?";
-                                //print(productList[1]);
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  border:
-                                      Border.all(width: 2.0, color: LightGreen),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 10, bottom: 10, right: 20, left: 20),
-                                  child: Text("View",
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          color: LightGreen,
-                                          fontWeight: FontWeight.w700)),
-                                ),
-                              ),
-                            )),
-                      ],
-                    ),
-                  ),
 
                   SizedBox(
                     height: 5,
@@ -359,7 +268,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "Instagram",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -369,12 +278,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                             padding: const EdgeInsets.only(
                                 top: 5, bottom: 5, right: 10, left: 10),
                             child: GestureDetector(
-                              onTap: () {
-                                // showBottomSheetD(context);
-                                //likedLost = "liked";
-                                //sHeading = "Items they liked?";
-                                //print(productList[1]);
-                              },
+                              onTap: () {},
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
@@ -410,7 +314,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "YouTube",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -420,12 +324,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                             padding: const EdgeInsets.only(
                                 top: 5, bottom: 5, right: 10, left: 10),
                             child: GestureDetector(
-                              onTap: () {
-                                // showBottomSheetD(context);
-                                //likedLost = "liked";
-                                //sHeading = "Items they liked?";
-                                //print(productList[1]);
-                              },
+                              onTap: () {},
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
@@ -456,9 +355,11 @@ class _MyDetailPageState extends State<MyDetailPage> {
               Container(
                 height: 50.0,
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(80.0)),
+                      borderRadius: BorderRadius.circular(50.0)),
                   padding: EdgeInsets.all(0.0),
                   child: Ink(
                     decoration: BoxDecoration(
@@ -470,7 +371,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                         borderRadius: BorderRadius.circular(30.0)),
                     child: Container(
                       constraints:
-                          BoxConstraints(maxWidth: 200.0, minHeight: 65.0),
+                          BoxConstraints(maxWidth: 300.0, minHeight: 85.0),
                       alignment: Alignment.center,
                       child: Text(
                         "Back",
@@ -491,93 +392,3 @@ class _MyDetailPageState extends State<MyDetailPage> {
     );
   }
 }
-
-//Center(
-//     child: Column(
-//   mainAxisAlignment: MainAxisAlignment.spaceAround,
-//   children: <Widget>[
-//     SizedBox(
-//       height: 80,
-//     ),
-//     Padding(
-//       padding: const EdgeInsets.only(left: 20),
-//       child: Hero(
-//         //transitionOnUserGestures: true,
-//         tag: superHero,
-//         child: Transform.scale(
-//           scale: 4.0,
-//           child: Image.asset(
-//             superHero.img,
-//             height: 100,
-//             width: 250,
-//           ),
-//         ),
-//       ),
-//     ),
-//     SizedBox(
-//       height: 20,
-//     ),
-//     Text(
-//       "Guest",
-//       style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-//     ),
-//     SizedBox(
-//       height: 20,
-//     ),
-//
-
-//Card(
-//         elevation: 8,
-//         margin: EdgeInsets.all(16),
-//         child: Column(
-//           children: [
-//             Container(
-//               padding: EdgeInsets.all(16),
-//               child: Text(superHero.body),
-//             ),
-//             SizedBox(
-//               height: 10,
-//             ),
-//             RaisedButton(
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(30.0)),
-//               color: Blue,
-//               textColor: Colors.white,
-//               child: Padding(
-//                 padding: const EdgeInsets.all(8.0),
-//                 child: Text(
-//                   "Facebook",
-//                   style: TextStyle(fontSize: 20.0, color: Colors.white),
-//                 ),
-//               ),
-//               onPressed: () {
-//                 launch(superHero.link);
-//                 setState(() {});
-//               },
-//             ),
-//             SizedBox(
-//               height: 10,
-//             ),
-//           ],
-//         )),
-//   ],
-// )),
-
-// RaisedButton(
-//   shape: RoundedRectangleBorder(
-//       borderRadius: BorderRadius.circular(30.0)),
-//   color: LightGreen,
-//   textColor: Colors.black,
-//   child: Padding(
-//     padding: const EdgeInsets.all(8.0),
-//     child: Text(
-//       "View More",
-//       style:
-//           TextStyle(fontSize: 20.0, color: Colors.white),
-//     ),
-//   ),
-//   onPressed: () {
-//     launch(superHero.link);
-//     setState(() {});
-//   },
-// ),
