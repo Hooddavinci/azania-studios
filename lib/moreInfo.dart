@@ -34,12 +34,15 @@ class _MyDetailPageState extends State<MyDetailPage> {
     final _height = MediaQuery.of(context).size.height;
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text(superHero.title,
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
-        backgroundColor: Colors.black,
-        automaticallyImplyLeading: false,
-        elevation: 8.0,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70.0),
+        child: AppBar(
+          title: Center(
+            child: Text("Azania's Guest",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
+          ),
+          backgroundColor: Colors.black,
+        ),
       ),
       body: Container(
         color: Colors.black,
@@ -51,9 +54,13 @@ class _MyDetailPageState extends State<MyDetailPage> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Image.asset(
                   superHero.img,
-                  height: _height * 0.5,
-                  width: _width,
+                  //height: _height,
+                  //width: _width,
                 ),
+              ),
+
+              SizedBox(
+                height: 20,
               ),
 
               Padding(
@@ -446,29 +453,33 @@ class _MyDetailPageState extends State<MyDetailPage> {
                 height: 40,
               ),
 
-              FlatButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40.0)),
-                color: LightGreen,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 20,
-                    bottom: 20,
-                  ),
-                  child: Text(
-                    "Back",
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+              Container(
+                height: 50.0,
+                child: RaisedButton(
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(80.0)),
+                  padding: EdgeInsets.all(0.0),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Blue, LightGreen],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(30.0)),
+                    child: Container(
+                      constraints:
+                          BoxConstraints(maxWidth: 200.0, minHeight: 65.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Back",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     ),
                   ),
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
               ),
               SizedBox(
                 height: 40,

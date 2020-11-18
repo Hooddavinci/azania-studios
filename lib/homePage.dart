@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
     items.add(new MyGuest(
       "assets/2.png",
-      "Koketso Urban Elegance",
+      "Koketso",
       "Social Entreprenuer",
       "Koketso is part of the multi-talented Urban elegance Team, which host an annual event on the 27 November that Merges ubarn wear with classic wear.",
       "https://www.facebook.com/koketso.magolego.39",
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
     items.add(new MyGuest(
       "assets/4.png",
-      "Skwala",
+      "Sgwala",
       "Rapper",
       "An un-orthoox eccentic rapper/fashionista who's not shy about expressing his views on music.",
       "https://www.facebook.com/thato.legodi.92102",
@@ -80,13 +80,12 @@ class _MyHomePageState extends State<MyHomePage> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                //builder: (context) => MoreInfo(items[index])));
                 builder: (context) => MyDetailPage(items[index])));
       },
       child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-          margin: EdgeInsets.all(8),
+          margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
           elevation: 4.0,
           color: LightGrayFrame,
           child: Container(
@@ -110,42 +109,34 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(
                       width: 15,
                     ),
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            //color: gren,
-                            child: Text(
+                    Center(
+                      child: Container(
+                        child: Column(
+                          children: <Widget>[
+                            //padding: const EdgeInsets.only(left: 1),
+                            Text(
                               items[index].title,
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
-                          ),
+                            SizedBox(
+                              height: 10,
+                            ),
+
+                            Text(
+                              items[index].carrer,
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: LightGray1,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        // Padding(
-                        //   padding: const EdgeInsets.only(left: 0.0),
-                        //   child: Container(
-                        //     alignment: Alignment.centerLeft,
-                        //     //color: gren,
-                        //     child: Text(
-                        //       items[index].carrer,
-                        //       style: TextStyle(
-                        //         fontSize: 15,
-                        //         color: LightGray1,
-                        //         fontWeight: FontWeight.w300,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
@@ -154,18 +145,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           )),
     );
-  }
+  } //easy to work with, self esteem
 
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        //title: Text("Azania's Guest"),
-        title: Text("Azania's Guest",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
-        backgroundColor: Colors.black,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70.0),
+        child: AppBar(
+          title: Center(
+            child: Text("Azania's Guest",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
+          ),
+          backgroundColor: Colors.black,
+        ),
       ),
       body: Container(
         color: Colors.black,
@@ -192,3 +187,4 @@ class _MyHomePageState extends State<MyHomePage> {
 //             ),
 //           ],
 //         ),
+//YOU CCAT GET THE CRUCH, SIGALS
