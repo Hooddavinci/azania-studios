@@ -55,8 +55,6 @@ class _MyDetailPageState extends State<MyDetailPage> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Image.asset(
                   superHero.img,
-                  //height: _height,
-                  //width: _width,
                 ),
               ),
 
@@ -70,9 +68,9 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   alignment: Alignment.centerLeft,
                   //color: green,
                   child: Text(
-                    "Guest Info",
+                    superHero.title,
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                         fontWeight: FontWeight.w700,
                         color: Colors.white),
                   ),
@@ -88,11 +86,11 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   child: Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.all(16),
+                        padding: EdgeInsets.all(20),
                         child: Text(
                           superHero.body,
                           style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 20,
                               fontWeight: FontWeight.w300,
                               color: LightGray),
                         ),
@@ -110,9 +108,9 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   alignment: Alignment.centerLeft,
                   //color: green,
                   child: Text(
-                    "Social Media Handles",
+                    "Social Media",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
                     ),
@@ -137,7 +135,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "FaceBook",
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 20,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -186,7 +184,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "Instagram",
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 20,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -238,8 +236,8 @@ class _MyDetailPageState extends State<MyDetailPage> {
                   child: Text(
                     "Podcast",
                     style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                   ),
@@ -268,7 +266,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "Instagram",
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 20,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -278,7 +276,9 @@ class _MyDetailPageState extends State<MyDetailPage> {
                             padding: const EdgeInsets.only(
                                 top: 5, bottom: 5, right: 10, left: 10),
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                launch(superHero.linkA);
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
@@ -314,7 +314,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           child: Text(
                             "YouTube",
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 20,
                               color: LightGray,
                               fontWeight: FontWeight.w300,
                             ),
@@ -324,7 +324,9 @@ class _MyDetailPageState extends State<MyDetailPage> {
                             padding: const EdgeInsets.only(
                                 top: 5, bottom: 5, right: 10, left: 10),
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                launch(superHero.linkB);
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
@@ -368,15 +370,18 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                         ),
-                        borderRadius: BorderRadius.circular(30.0)),
+                        borderRadius: BorderRadius.circular(20.0)),
                     child: Container(
                       constraints:
-                          BoxConstraints(maxWidth: 300.0, minHeight: 85.0),
+                          BoxConstraints(maxWidth: 150.0, minHeight: 100.0),
                       alignment: Alignment.center,
                       child: Text(
                         "Back",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),

@@ -41,38 +41,38 @@ class _MyHomePageState extends State<MyHomePage> {
         "assets/1.png",
         "Kay Mela",
         "Rapper",
-        "Underground Hip hop artist, who is passionate about making music and money at the same time His first album titled 'Above and beyond will be dropping on 03 Feb 2021'",
+        "Underground Hip hop artist, who is passionate about making music and money at the same time.His first album titled 'Above and beyond ‘will be dropping really soon",
         "https://www.facebook.com/kgothatso.malemela.942",
         "https://www.instagram.com/kaymela_sa/",
-        "https://www.instagram.com/p/CHU3MUPJ1HZ/",
-        "https://www.youtube.com/watch?v=SPt4RUqZToY"));
+        "https://www.instagram.com/tv/CHU3MUPJ1HZ/",
+        "https://www.youtube.com/watch?v=SPt4RUqZToY&t=96s"));
     items.add(new MyGuest(
         "assets/2.png",
         "Koketso",
         "Social Entreprenuer",
         "Koketso is part of the multi-talented Urban elegance Team, which host an annual event on the 27 November that Merges ubarn wear with classic wear.",
         "https://www.facebook.com/koketso.magolego.39",
-        "https://www.instagram.com/koketso_ledile/",
-        "https://www.instagram.com/p/CHRvzHhJY5Y/",
+        "",
+        "https://www.instagram.com/tv/CHRvzHhJY5Y/",
         "https://www.youtube.com/watch?v=OFAzKr0BzMI"));
     items.add(new MyGuest(
         "assets/3.png",
         "Bridget Mokalapa",
         "Poet",
-        "A poet, Motivational speaker and an audit student. We set down with her to get her view about life, woman abuse and whole lot of isseues that we're facing in our communities",
+        "A poet, motivational speaker and an audit student. In this conversation we talked about women abuse and the issues that women are facing in black communities.",
         "https://www.facebook.com/breeigh.nolo.5",
-        "https://www.instagram.com/koketso_ledile/",
         "https://www.instagram.com/tshenolobreeigh/",
-        ""));
+        "https://www.instagram.com/tv/CHISRHcJ50k/",
+        "https://www.youtube.com/watch?v=RctJJHL1MgY"));
     items.add(new MyGuest(
         "assets/4.png",
         "Sgwala",
         "Rapper",
-        "An un-orthoox eccentic rapper/fashionista who's not shy about expressing his views on music.",
+        "An un-orthoox eccentic rapper/fashion10ista who's not shy about expressing his views on music.",
         "https://www.facebook.com/thato.legodi.92102",
-        "https://www.instagram.com/thatolegodi.08/",
-        "https://www.instagram.com/thatolegodi.08/",
-        "https://www.youtube.com/watch?v=geQB-Ryb--0&t=696s"
+        "",
+        "https://www.instagram.com/p/CG_9IYUJz2i/",
+        "https://www.youtube.com/watch?v=HOKBNFtsMmM"
         //we need to hook up that with the content
         ));
     //items.add(new MySuperHero("assets/image1.jpg", "Black Widow",
@@ -114,33 +114,32 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(
                       width: 15,
                     ),
-                    Center(
-                      child: Container(
-                        child: Column(
-                          children: <Widget>[
-                            //padding: const EdgeInsets.only(left: 1),
-                            Text(
-                              items[index].title,
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                              ),
+                    Container(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: <Widget>[
+                          //padding: const EdgeInsets.only(left: 1),
+                          Text(
+                            items[index].title,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
+                          ),
+                          // SizedBox(
+                          //   height: 10,
+                          // ),
 
-                            Text(
-                              items[index].carrer,
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: LightGray1,
-                                fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                          ],
-                        ),
+                          // Text(
+                          //   items[index].carrer,
+                          //   style: TextStyle(
+                          //     fontSize: 15,
+                          //     color: LightGray1,
+                          //     fontWeight: FontWeight.w300,
+                          //   ),
+                          // ),
+                        ],
                       ),
                     ),
                   ],
@@ -183,13 +182,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-// child: Stack(
-//           children: <Widget>[
-//             ListView.builder(
-//               itemCount: items.length,
-//               itemBuilder: (context, index) => GuestCell(context, index),
-//             ),
-//           ],
-//         ),
-//YOU CCAT GET THE CRUCH, SIGALS
